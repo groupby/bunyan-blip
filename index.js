@@ -1,5 +1,5 @@
 const Stream = function (blipClient, threshold) {
-  const self = this;
+  const self      = this;
   const logLevels = [
     'trace',
     'debug',
@@ -9,8 +9,8 @@ const Stream = function (blipClient, threshold) {
     'fatal'
   ];
 
-  const logLevelIntToString = (levelInt) => logLevels[levelInt/10-1];
-  self.thresholdLevel = (logLevels.indexOf(threshold) + 1) * 10;
+  const logLevelIntToString = (levelInt) => logLevels[levelInt / 10 - 1];
+  self.thresholdLevel       = (logLevels.indexOf(threshold) + 1) * 10;
 
   const prepareBlipData = (data) => {
     const exclusionArray = [
@@ -21,7 +21,7 @@ const Stream = function (blipClient, threshold) {
       'level',
       'name'
     ];
-    let cleanData      = {};
+    let cleanData        = {};
     Object.keys(data).forEach((key) => exclusionArray.indexOf(key) >= 0 ? null : cleanData[key] = data[key]);
 
     if (cleanData.msg !== '') {
@@ -29,7 +29,7 @@ const Stream = function (blipClient, threshold) {
     }
 
     delete cleanData.msg;
-    console.log(`cleanData = ${JSON.stringify(cleanData)}`)
+    console.log(`cleanData = ${JSON.stringify(cleanData)}`);
 
     const level = data.level;
     return {
@@ -47,9 +47,7 @@ const Stream = function (blipClient, threshold) {
     }
   };
 
-  self.end = () => {
-    console.log('Stream end was called. This is good..?');
-  };
+  self.end = () => {};
 
   return self;
 };
