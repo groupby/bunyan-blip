@@ -1,0 +1,28 @@
+{
+  "name": "bunyan-blip",
+  "version": "1.0.0",
+  "description": "Streams logs from bunyan to GroupBy blip server",
+  "main": "index.js",
+  "dependencies": {
+    "@groupby/common": "^4.3.0",
+    "blip-client": "^1.0.0",
+    "bunyan": "^1.8.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/groupby/bunyan-blip.git"
+  },
+  "author": "Tahir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/groupby/bunyan-blip/issues"
+  },
+  "homepage": "https://github.com/groupby/bunyan-blip#readme"
+}
