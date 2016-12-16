@@ -36,7 +36,7 @@ describe('Bunyan blip stream tests', () => {
     const testData = 'test message';
     const client = {
       write : (data) =>  {
-        expect(data.msg).to.eql(testData);
+        expect(data.log.msg).to.eql(testData);
         done();
       }
     };

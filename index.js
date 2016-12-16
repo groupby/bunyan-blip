@@ -12,10 +12,24 @@ const Stream = function (blipClient, threshold) {
   self.thresholdLevel = (logLevels.indexOf(threshold) + 1) * 10;
 
   const prepareBlipData = (data) => {
-    const exclusionArray = ['hostname', 'pid', 'time', 'v'];
-    const cleanData = {};
-    Object.keys(data).forEach((key) => exclusionArray.indexOf(key) >=0 ? null : cleanData[key] = data[key]);
-    return cleanData;
+    const exclusionArray = [
+      'hostname',
+      'pid',
+      'time',
+      'v',
+      'level'
+    ];
+    const cleanData      = {};
+    Object.keys(data).forEach((key) => exclusionArray.indexOf(key) >= 0 ? null : cleanData[key] = data[key]);
+
+
+    const level = data.level;
+    return {
+      cause:    `Log threshold exceed. Threshold level: ${self.thresholdLevel} Log level: ${level}`,
+      logLevel: level,
+      log:      cleanData
+    };
+
   };
 
   self.write = (data) => {
