@@ -9,6 +9,7 @@ const Stream = function (blipClient, threshold) {
     'fatal'
   ];
 
+  const logLevelIntToString = (levelInt) => logLevels[levelInt/10-1];
   self.thresholdLevel = (logLevels.indexOf(threshold) + 1) * 10;
 
   const prepareBlipData = (data) => {
@@ -25,7 +26,7 @@ const Stream = function (blipClient, threshold) {
 
     const level = data.level;
     return {
-      cause:    `Log threshold exceed. Threshold level: ${self.thresholdLevel} Log level: ${level}`,
+      cause:    `Log threshold exceed. Threshold level: ${logLevelIntToString(self.thresholdLevel)} Log level: ${logLevelIntToString(level)}`,
       logLevel: level,
       log:      cleanData
     };
