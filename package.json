@@ -6,7 +6,8 @@
   "dependencies": {
     "@groupby/common": "^4.3.0",
     "blip-client": "^1.0.0",
-    "bunyan": "^1.8.5"
+    "bunyan": "^1.8.5",
+    "chai-spies": "^0.7.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

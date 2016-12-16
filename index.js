@@ -18,11 +18,18 @@ const Stream = function (blipClient, threshold) {
       'pid',
       'time',
       'v',
-      'level'
+      'level',
+      'name'
     ];
-    const cleanData      = {};
+    let cleanData      = {};
     Object.keys(data).forEach((key) => exclusionArray.indexOf(key) >= 0 ? null : cleanData[key] = data[key]);
 
+    if (cleanData.msg !== '') {
+      cleanData = cleanData.msg;
+    }
+
+    delete cleanData.msg;
+    console.log(`cleanData = ${JSON.stringify(cleanData)}`)
 
     const level = data.level;
     return {
@@ -30,7 +37,6 @@ const Stream = function (blipClient, threshold) {
       logLevel: level,
       log:      cleanData
     };
-
   };
 
   self.write = (data) => {
