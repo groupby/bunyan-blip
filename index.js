@@ -10,7 +10,7 @@ const Stream = function (blipClient, threshold) {
   ];
 
   const logLevelIntToString = (levelInt) => logLevels[levelInt / 10 - 1];
-  self.thresholdLevel       = (logLevels.indexOf(threshold) + 1) * 10;
+  self.thresholdLevel = (logLevels.indexOf(threshold) + 1) * 10;
 
   const prepareBlipData = (data) => {
     const exclusionArray = [
@@ -29,7 +29,6 @@ const Stream = function (blipClient, threshold) {
     }
 
     delete cleanData.msg;
-    console.log(`cleanData = ${JSON.stringify(cleanData)}`);
 
     const level = data.level;
     return {
@@ -42,7 +41,6 @@ const Stream = function (blipClient, threshold) {
   self.write = (data) => {
     const cleanData = prepareBlipData(data);
     if (data.level >= self.thresholdLevel) {
-      console.log(JSON.stringify(cleanData, null, 2));
       blipClient.write(cleanData);
     }
   };

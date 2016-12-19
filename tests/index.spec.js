@@ -1,7 +1,6 @@
 const BlipStream = require('../index');
 
 const chai           = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const spies          = require('chai-spies');
 const expect         = chai.expect;
 
