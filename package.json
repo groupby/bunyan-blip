@@ -11,7 +11,7 @@
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
     "codacy-coverage": "^2.0.0",
-    "eslint-plugin-no-only-tests": "^1.1.0",
+    "eslint-plugin-no-only-tests": "^2.0.0",
     "gb-license-check": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
